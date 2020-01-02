@@ -1,0 +1,8 @@
+<div class="p-5 container">
+    <h2>Log in</h2>
+    <input class="form-control" placeholder="Email" [(ngModel)]="credentials.email" autofocus>
+    <input class="form-control" type="password" placeholder="Password" [(ngModel)]="credentials.password">
+    <button class="my-2 btn btn-primary" (click)="signIn()">Log in</button>
+    <a id="sign-in" class="text-center nav-link" routerLink="/sign-up">Don't have an account? Sign up.</a>
+  </div>
+  

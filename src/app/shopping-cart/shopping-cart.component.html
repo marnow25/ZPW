@@ -1,0 +1,14 @@
+<section id='shopping-cart' class='trips p-5'>
+    <div class="container">
+      <div class="alert text-center">
+        <strong [ngClass]="[countTripsInShoppingCart() > 10 ? 'text-success' : 'text-danger' ]">You have {{countTripsInShoppingCart()}} elements in your shopping cart</strong>
+      </div>
+       <div class="row mb-4">
+        <div *ngFor="let trip of getUniqueTripsInShoppingCart()" class="col-md-4 mb-3 mb-md-0 mt-4">
+          <app-trip-in-shopping-cart>[trip]="trip" (removeTripEmitter)="removeTripFromShoppingCart($event)"></app-trip-in-shopping-cart> 
+        </div>
+      </div>
+  
+    <button class="my-2 btn btn-primary " (click)="orderTrips()">Book</button>
+    </div>
+  </section>

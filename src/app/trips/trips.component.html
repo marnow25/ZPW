@@ -1,0 +1,32 @@
+<section id='trips' class='trips'>
+    <div class="container">
+     <div id="filters" class="row p-5">
+       <h2 class='text-center col-12' i18n>Filters</h2>
+       <input [(ngModel)]="destinationFilter" class="row-md-2 form-control" placeholder="Destination" type="text" autofocus>
+       <input [(ngModel)]="startDateFilter" class="row-md-2 form-control" placeholder="Start date" type="date">
+       <input [(ngModel)]="endDateFilter" class="row-md-2 form-control" placeholder="End date" type="date">
+       <input [(ngModel)]="minimumPriceFilter" class="row-md-2 form-control" placeholder="Minimum price" type="number" min=0>
+       <input [(ngModel)]="maximumPriceFilter" class="row-md-2 form-control" placeholder="Maximum price" type="number" min=0>
+       <input [(ngModel)]="minimumRateFilter" class="row-md-2 form-control" placeholder="Minimum rate" type="number" min=0 max=5> 
+     </div>
+  
+     <div class="row mb-4">
+      <div *ngFor="let trip of (trips | tripDestination: destinationFilter | tripStartDate: startDateFilter | tripEndDate: endDateFilter  | tripMinPrice: minimumPriceFilter | tripMaxPrice: maximumPriceFilter | tripMinRating: minimumRateFilter )" class="col-md-4 mb-3 mb-md-0 mt-4">
+        <app-trip [trip]="trip" (removeTripEmitter)="removeTrip($event)" [special]="isTripSpecial(trip)"></app-trip>
+      </div>
+      <button *ngIf="isAdmin() && !showForm" (click)="showForm=true;" type="button" class="btn btn-default btn-lg col-md-4 mb-3 mb-md-0 mt-4 py-5">
+        <span class="fa fa-plus text-primary" ></span>
+      </button>
+      <app-new-trip [hidden]="!showForm" (addTripEmitter)="showForm=false; addTrip($event)" class="col-md-4 mb-3 mb-md-0 mt-4"></app-new-trip> 
+     </div>
+    </div>
+  </section>
+ 
+  <a *ngIf="!isAdmin()" routerLink="/shopping-cart">
+    <div class="container alert text-center">
+      <div [ngClass]="[countTripsInShoppingCart() > 10 ? 'text-success' : 'text-danger' ]">You have {{countTripsInShoppingCart()}} elements in your shopping cart</div>
+    </div>
+  </a> 
+  
+  
+  

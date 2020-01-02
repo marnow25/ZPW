@@ -1,0 +1,22 @@
+.navbar{
+    min-height: 70px;
+    font-size: 2.3rem !important;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transition: background 0.3s linear;
+   }
+   .navbar-affix{
+    background: #343a40;
+   }
+   
+   .navbar-brand{
+    color: rgba(0,0,0,.5);
+    letter-spacing: .0625em;
+    font-weight: medium;
+    font-size: 1.5rem;
+   }
+   
+   .nav-trip{
+     margin-right: 40px;
+   }
+   

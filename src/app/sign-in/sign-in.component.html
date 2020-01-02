@@ -1,0 +1,11 @@
+<div class="p-5 container">
+    <h2>Registration</h2>
+    <input class="form-control" placeholder="Email" [(ngModel)]="credentials.email" autofocus>
+    <input class="form-control" type="password" placeholder="Password" [(ngModel)]="credentials.password">
+    <input class="form-control" type="password" placeholder="Password confirmation" [(ngModel)]="credentials.passwordConfirmation">
+    <button class="my-2 btn btn-primary" (click)="signUp()">Register</button>
+    <h5>{{ registerInfo }}</h5>
+  
+    <a id="sign-up" class="text-center nav-link" routerLink="/log-in">Have an account already? Log in.</a>
+  </div>
+  

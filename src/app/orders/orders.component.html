@@ -1,0 +1,9 @@
+<section id='orders' class='container my-5'>
+
+    <h2>Orders</h2>
+    <div class="row mb-4">
+     <div *ngFor="let trip of orderedTrips" class="col-md-4 mb-3 mb-md-0 mt-4">
+       <app-trip-in-order [trip]="trip"></app-trip-in-order>
+     </div>
+    </div>
+</section>

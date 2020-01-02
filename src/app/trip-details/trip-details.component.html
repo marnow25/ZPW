@@ -1,0 +1,23 @@
+<div *ngIf="trip" id='trip-details' class="container">
+    <div class="card-body text-center">
+      <i class="fa fa-suitcase text-secondary"></i>
+      <h4 class="text-uppercase m-0">{{trip.name}}</h4>
+      <div class="text-primary">Price: {{trip.price}}zł</div>
+      <div class="text-black">Description: {{trip.description}}</div>
+      <div class="text-black">Trip starts: {{trip.startDate  | date: 'yyyy-MM-dd'}}</div>
+      <div class="text-black">Trip ends: {{trip.endDate  | date: 'yyyy-MM-dd'}}</div>
+      <div class="text-black">Places left: {{trip.limit}}</div>
+        <div><img class="img-thumbnail" src="../../assets{{trip.imageSrc}}"/></div>     
+    </div>
+  
+    <div *ngIf="isAdmin()" class="card-body text-center my-auto">
+      <br><label>Name :<input [(ngModel)]="trip.name" placeholder="destination"/></label>
+      <br><label>Destination :<input [(ngModel)]="trip.destination" placeholder="destination"/></label>
+      <br><label>Desc :<input [(ngModel)]="trip.description"/></label>
+      <br><label>Limit: <input [(ngModel)]="trip.limit" name="limit"/></label>
+      <br><label>Price: <input [(ngModel)]="trip.price" label="price"/></label>
+      <br><button class="btn btn-primary" (click)="updateTrip()">Update</button>
+    </div>
+  
+    <!-- <app-comment [trip]="trip"></app-comment> -->
+  </div>

@@ -1,0 +1,15 @@
+<div class="card py-4 h-100">
+    <div class="card-body text-center">
+      <i class="fa fa-suitcase text-secondary mb-2"></i>
+      <h4 class="text-uppercase m-0">{{trip.name}}</h4>
+      <div class="small text-black-50">{{trip.price}}zł</div>
+      <div class="small text-black-50">{{trip.limit-howManyLeft()}} places reserved</div>
+      <hr class="my-4">
+      <div class="row justify-content-center align-trips-center">
+         <button (click)="removeTripFromShoppingCart()" type="button" class="col-2 btn btn-outline-primary">-</button>
+         <div class="col-3 col-md-4"><img class="img-thumbnail" src="../../assets{{trip.imageSrc}}" /></div>
+         <button (click)="addTripToShoppingCart()" type="button" [disabled]="!howManyLeft()" class="col-2 btn btn-outline-primary">+</button>
+      </div>
+    </div>
+  </div>
+  
