@@ -59,8 +59,7 @@ export class AuthenticationService {
    return this.fireAuthentication.auth.createUserWithEmailAndPassword(email, password);
  }
 
- logout() {
-   this.user = null;
-   return this.fireAuthentication.auth.signOut();
+ logout() { 
+   return this.fireAuthentication.auth.signOut().then(this.user = null);
  }
 }

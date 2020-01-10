@@ -33,7 +33,7 @@ export class ShoppingCartService {
   }
 
   addTripToShoppingCart(trip: Trip) {
-    if (this.existsInShoppingCart(trip)) { // Overide if exits, to make sure it's the same element
+    if (this.existsInShoppingCart(trip)) {
       trip = this.shoppingCart.find(i => i.id === trip.id);
     }
     this.shoppingCart.push(trip);
@@ -57,7 +57,7 @@ export class ShoppingCartService {
   }
 
   countTripInShoppingCart(trip: Trip) {
-    return this.shoppingCart.filter(t => t === trip).length;
+    return this.shoppingCart.filter(t => t.id === trip.id).length;
   }
 
   getUniqueTripsInShoppingCart(): Set<Trip> {
@@ -66,7 +66,7 @@ export class ShoppingCartService {
 
   orderTrips() {
     if (!this.authenticationService.getUser()) { this.router.navigate(['/log-in']); return; }
-    this.tripService.orderTrips(this.shoppingCart); // .subscribe(item => console.log('Bought'));
+    this.tripService.orderTrips(this.shoppingCart);
     this.shoppingCart = [];
     localStorage.removeItem('shoppingCart');
   }

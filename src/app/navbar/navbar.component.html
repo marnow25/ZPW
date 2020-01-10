@@ -9,7 +9,7 @@
             <a class="nav-link js-scroll-trigger" (click)="scrollToElementWithId('trips')" routerLink="" i18n="Navbar">Travel Agency</a>
           </li>
           <li class="nav-trip">
-           <a  *ngIf="!getUserId()"  class="nav-link" (click)="scrollToElementWithId('sign-in')" routerLink="/log-in"><i class="fa fa-user text-primary"></i></a>
+           <a  *ngIf="!getUserId()"  class="nav-link" (click)="scrollToElementWithId('log-in')" routerLink="/log-in"><i class="fa fa-user text-primary"></i></a>
            <a  *ngIf="getUserId()" class="nav-link" (click)="logout()"><i class="fa fa-sign-out text-primary"></i></a>
           </li>
           <li class="nav-trip">

@@ -51,6 +51,7 @@ export class TripService {
     // Firebase
     this.trips = this.tripsCollection.valueChanges({idField: 'id'});
     return this.trips;
+    // API
     return this.http.get<Trip[]>(this.backendUrl)
                      .pipe(tap(_ => console.log('Fetched trips from API')),
                      catchError(this.handleError<Trip[]>('getTripsFromAPI', [])));

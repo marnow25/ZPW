@@ -10,7 +10,8 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class TripComponent implements OnInit {
   @Input() trip: Trip;
-  @Input() special: boolean;
+  @Input() specialLowestPrice: boolean;
+  @Input() specialHighestPrice: boolean;
   @Output() removeTripEmitter = new EventEmitter<Trip>();
 
 

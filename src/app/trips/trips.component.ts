@@ -39,7 +39,7 @@ export class TripsComponent implements OnInit {
   }
 
   removeTrip(trip: Trip) {
-    if (confirm('Are you sure you want to delte this trip?')) {
+    if (confirm('Are you sure you want to delete this trip?')) {
      this.tripService.removeTrip(trip).subscribe(res => { this.trips.splice( this.trips.indexOf(trip), 1); });
     }
   }
@@ -48,10 +48,13 @@ export class TripsComponent implements OnInit {
     return this.shoppingCartService.countTripsInShoppingCart();
   }
 
-  isTripSpecial(trip: Trip): boolean {
+  isTripSpecialLowestPrice(trip: Trip): boolean {
     const lowestPriceTrip = this.trips.reduce((a, b) => a.price < b.price ? a : b);
+    return trip === lowestPriceTrip;
+  }
+  isTripSpecialHighestPrice(trip: Trip): boolean {
     const highestPriceTrip = this.trips.reduce((a, b) => a.price > b.price ? a : b);
-    return (trip === lowestPriceTrip || trip === highestPriceTrip);
+    return trip === highestPriceTrip;
   }
 
   isAdmin(): boolean {

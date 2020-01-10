@@ -7,14 +7,15 @@ import { OrdersComponent } from './orders/orders.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { AuthGuard } from './authentication.guard';
+import { LoginGuard } from './login.guard';
 
 const routes: Routes = [
   { path: '', component: TripsComponent },
   { path: 'trip/:id', component: TripDetailsComponent},
   { path: 'shopping-cart', component: ShoppingCartComponent },
   { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard]},
-  { path : 'sign-up', component: SignInComponent},
-  { path : 'log-in', component: LogInComponent},
+  { path : 'sign-up', component: SignInComponent, canActivate: [LoginGuard]},
+  { path : 'log-in', component: LogInComponent, canActivate: [LoginGuard]},
 ];
 
 @NgModule({
