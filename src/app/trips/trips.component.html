@@ -11,13 +11,13 @@
      </div>
   
      <div class="row mb-4">
-      <div *ngFor="let trip of (trips | tripDestination: destinationFilter | tripStartDate: startDateFilter | tripEndDate: endDateFilter  | tripMinPrice: minimumPriceFilter | tripMaxPrice: maximumPriceFilter | tripMinRating: minimumRateFilter )" class="col-md-4 mb-3 mb-md-0 mt-4">
+      <div *ngFor="let trip of (trips | tripDestination: destinationFilter | tripStartDate: startDateFilter | tripEndDate: endDateFilter  | tripMinPrice: minimumPriceFilter | tripMaxPrice: maximumPriceFilter | tripMinRating: minimumRateFilter )" class="col-md-6 mb-3 mb-md-0 mt-4">
         <app-trip [trip]="trip" (removeTripEmitter)="removeTrip($event)" [special]="isTripSpecial(trip)"></app-trip>
       </div>
       <button *ngIf="isAdmin() && !showForm" (click)="showForm=true;" type="button" class="btn btn-default btn-lg col-md-4 mb-3 mb-md-0 mt-4 py-5">
         <span class="fa fa-plus text-primary" ></span>
       </button>
-      <app-new-trip [hidden]="!showForm" (addTripEmitter)="showForm=false; addTrip($event)" class="col-md-4 mb-3 mb-md-0 mt-4"></app-new-trip> 
+      <app-new-trip [hidden]="!showForm" (addTripEmitter)="showForm=false; addTrip($event)" class="col-md-6 mb-3 mb-md-0 mt-4"></app-new-trip> 
      </div>
     </div>
   </section>

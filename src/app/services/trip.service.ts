@@ -7,6 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { AuthenticationService } from './authentication.service';
 
 
 @Injectable({
@@ -22,8 +23,11 @@ export class TripService {
   };
   trips: Observable<Trip[]>
 
-  constructor( private http: HttpClient, private database: AngularFirestore, private router: Router) {
-    this.tripsCollection = this.database.collection<Trip>('items');
+  constructor( private http: HttpClient,
+     private database: AngularFirestore,
+     private router: Router,
+     private authenticationService: AuthenticationService) {
+    this.tripsCollection = this.database.collection<Trip>('trips');
     this.usersOrdersCollection = this.database.collection<Order>('usersOrders');
     this.usersCommentsCollection = this.database.collection<Comment>('usersComments');
    }
@@ -46,9 +50,7 @@ export class TripService {
   getTrips(): Observable<Trip[]> {
     // Firebase
     this.trips = this.tripsCollection.valueChanges({idField: 'id'});
-    console.log(this.trips);
-    // return this.trips;
-    // API
+    return this.trips;
     return this.http.get<Trip[]>(this.backendUrl)
                      .pipe(tap(_ => console.log('Fetched trips from API')),
                      catchError(this.handleError<Trip[]>('getTripsFromAPI', [])));
@@ -61,7 +63,7 @@ export class TripService {
      object.id = action.payload.id;
      return object;
    }));
-   //return trip;
+   return trip;
    // API
    const url = `${this.backendUrl}/${id}`;
    return this.http.get<Trip>(url)
@@ -86,7 +88,7 @@ export class TripService {
   removeTrip(trip: Trip): Observable<Trip> {
     // Firebase
     this.database.doc<Trip>(`/trips/${trip.id}`).delete();
-    //return of(trip);
+    return of(trip);
     // API
     const url = `${this.backendUrl}/${trip.id}`;
     return this.http.delete<Trip>(url, this.httpOptions)
@@ -95,8 +97,8 @@ export class TripService {
   }
 
   orderTrips(trips: Trip[]) {
-    // if (!this.auth.getUser()) { this.router.navigate(['/signin']);
-    // } else {
+    if (!this.authenticationService.getUser()) { this.router.navigate(['/log-in']);
+    } else {
 
       // Update limits
       const uniqueIds = [...new Set(trips.map((trip: Trip) => trip.id))];
@@ -108,34 +110,33 @@ export class TripService {
 
       // Save orders
       trips.forEach(trip  => {
-        const order = {tripId: trip.id};
-        //  const order = {tripId: trip.id, userId: this.auth.getUser().uid};
-        //  this.usersOrdersCollection.add(order);
+         const order = {tripId: trip.id, userId: this.authenticationService.getUser().uid};
+         this.usersOrdersCollection.add(order);
       });
   }
+}
   
 
   /**
    * Get ordered items
    */
   getOrderedTrips() {
-    //const userId = this.auth.getUserId();
-    // return this.database.collection<Order>('usersOrders',  ref => ref.where('userId', '==', userId )).valueChanges();
-    return this.database.collection<Order>('usersOrders',  ref => ref.where('userId', '==', 'dupa' )).valueChanges();
+    const userId = this.authenticationService.getUserId();
+    return this.database.collection<Order>('usersOrders',  ref => ref.where('userId', '==', userId )).valueChanges();
   }
 
-  // /**
-  //  * Get comments for order
-  //  */
-  // getComments(tripId: string) {
-  //   return this.database.collection<Comment>('usersComments',  ref => ref.where('tripId', '==', tripId )).valueChanges();
-  // }
+  /**
+   * Get comments for order
+   */
+  getComments(tripId: string) {
+    return this.database.collection<Comment>('usersComments',  ref => ref.where('tripId', '==', tripId )).valueChanges();
+  }
 
-  // /**
-  //  * Add item to database.
-  //  */
-  // addComment(comment: Comment) {
-  //   // Firebase
-  //   this.usersCommentsCollection.add(comment);
-  // }
+  /**
+   * Add item to database.
+   */
+  addComment(comment: Comment) {
+    // Firebase
+    this.usersCommentsCollection.add(comment);
+  }
 }

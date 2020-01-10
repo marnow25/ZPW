@@ -33,6 +33,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { TripInOrderComponent } from './trip-in-order/trip-in-order.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { LogInComponent } from './log-in/log-in.component';
+import { CommentaryComponent } from './commentary/commentary.component';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { LogInComponent } from './log-in/log-in.component';
     TripInOrderComponent,
     SignInComponent,
     LogInComponent,
+    CommentaryComponent,
   ],
   imports: [
     BrowserModule,

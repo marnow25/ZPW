@@ -24,7 +24,7 @@ export class SignInComponent {
       return;
     }
     this.authenticationService.register(this.credentials)
-      .then(() => this.registerInfo = 'Account created. Please log in!')
+      .then(() => this.router.navigateByUrl('/log-in'))
       .catch(err => alert(err.message));
   }
 }

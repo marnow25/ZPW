@@ -6,17 +6,17 @@
       <div class="collapse navbar-collapse bg-dark rounded px-4" id="navbarResponsive">
         <ul class="navbar-nav mr-auto">
           <li class="nav-trip">
-            <a class="nav-link js-scroll-trigger" (click)="scrollToElementWithId('trips')" routerLink="" i18n="Navbar">Trips</a>
+            <a class="nav-link js-scroll-trigger" (click)="scrollToElementWithId('trips')" routerLink="" i18n="Navbar">Travel Agency</a>
           </li>
           <li class="nav-trip">
-           <a  *ngIf="!getUserId()" class="nav-link" class="nav-link" (click)="scrollToElementWithId('sign-in')" routerLink="/log-in"><i class="fa fa-user text-primary"></i></a>
-           <a  *ngIf="getUserId()" class="nav-link" class="nav-link" (click)="logout()"><i class="fa fa-sign-out text-primary"></i></a>
+           <a  *ngIf="!getUserId()"  class="nav-link" (click)="scrollToElementWithId('sign-in')" routerLink="/log-in"><i class="fa fa-user text-primary"></i></a>
+           <a  *ngIf="getUserId()" class="nav-link" (click)="logout()"><i class="fa fa-sign-out text-primary"></i></a>
           </li>
           <li class="nav-trip">
             <a *ngIf="!isAdmin()" class="nav-link" (click)="scrollToElementWithId('shopping-cart')" routerLink="/shopping-cart"><i class="fa fa-cart-plus text-primary"></i></a>
           </li>
           <li class="nav-trip">
-            <a *ngIf="!isAdmin() && getUserId()" class="nav-link" routerLink="/orders"><i class="fa fa-history text-primary"></i></a>
+            <a *ngIf="!isAdmin() && getUserId()" class="nav-link" routerLink="/orders"><i class="fa fa-clipboard text-primary"></i></a>
           </li>
         </ul>
       </div>

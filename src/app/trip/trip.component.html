@@ -1,28 +1,28 @@
-<div class="card py-2 h-100" [ngClass]="{'bg-light': special, 'border-danger': howManyLeft()<=3 }">
+<div class="card py-4 h-100" [ngClass]="{'bg-light': special, 'border-danger': howManyLeft()<=3 }">
     <div class="card-body text-center">
-      <i class="fa fa-suitcase text-secondary mb-4"></i>
+      <i class="fa fa-suitcase text-secondary mb-2"></i>
       <h4 class="text-uppercase m-0">{{trip.name}}</h4>
-      <div class="small text-primary">{{trip.price}}zł</div>
-      <div *ngIf="howManyLeft(); else noTripsLeftBlock" class="small text-black-100">{{howManyLeft()}} places left</div>
-      <ng-template #noTripsLeftBlock><div class="small text-black-100">No more places!</div></ng-template>
-        <br>
-      <div><img class="img-thumbnail" src="../../assets{{trip.imageSrc}}" /></div>
+      <div class="text-primary">{{trip.price}}zł</div>
+      <div *ngIf="howManyLeft(); else noTripsLeftBlock" class="text-black-100">{{howManyLeft()}} places left</div>
+      <ng-template #noTripsLeftBlock><div class="text-black-100">No more places!</div></ng-template>
       <hr class="my-4">
-      <div class="d-flex justify-content-around align-trips-center">
-         <button *ngIf="!isAdmin()" (click)="deleteTripFromShoppingCart()" type="button" [disabled]="howManyLeft()==trip.limit" class="col-2 btn btn-secondary">-</button>       
+      <div><img class="img-thumbnail" src="../../assets{{trip.imageSrc}}" /></div>
+      <hr *ngIf="!isAdmin()" class="my-4">
+      <div class="d-flex justify-content-end">
+         <button *ngIf="!isAdmin()" (click)="deleteTripFromShoppingCart()" type="button" [disabled]="howManyLeft()==trip.limit" class="col-2 mx-2 btn btn-secondary">-</button>       
          <button *ngIf="!isAdmin()" (click)="addTripToShoppingCart()" type="button" [disabled]="!howManyLeft()" class="col-2 btn btn-primary">+</button>
       </div>
     </div>
   
-    <div class="row card-footer bg-transparent align-trips-center">
+    <div class="row card-footer bg-transparent justify-content-center">
   
   
-      <div *ngFor="let element of [].constructor(4); let i = index" class="col-2">
-       <i *ngIf="!isAdmin()" (click)="rateTrip(i+1)" class="fa" [ngClass]="{'fa-star text-warning': trip.rating > i, 'fa-star-o': trip.rating <= i}" >
+      <div *ngFor="let element of [].constructor(5); let i = index" class="col-1">
+       <i *ngIf="!isAdmin()" (click)="rateTrip(i+1)" class="fa" [ngClass]="{'fa-star text-warning': trip.rating > i, 'fa-star-o ': trip.rating <= i}" >
        </i>
       </div>
   
-      <i *ngIf="isAdmin()" (click)="removeTrip()" class="col-2 fa fa-trash text-alert"></i>
-      <i routerLink="/trip/{{trip.id}}" class="col-2 fa fa-info-circle text-alert"></i>
+      <i *ngIf="isAdmin()" (click)="removeTrip()" class="col-1 fa fa-trash text-alert"></i>
+      <i routerLink="/trip/{{trip.id}}" class="col-1 fa fa-info-circle text-alert"></i>
     </div>
   </div>
