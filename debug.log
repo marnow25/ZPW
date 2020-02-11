@@ -1,0 +1,7 @@
+[0211/044627.929:ERROR:process_reader_win.cc(123)] NtOpenThread: {Odmowa dostêpu} Proces za¿¹da³ dostêpu do obiektu, ale prawa dostêpu nie zosta³y przyznane. (0xc0000022)
+[0211/044627.931:ERROR:exception_snapshot_win.cc(98)] thread ID 26948 not found in process
+[0211/044627.954:ERROR:process_reader_win.cc(123)] NtOpenThread: {Odmowa dostêpu} Proces za¿¹da³ dostêpu do obiektu, ale prawa dostêpu nie zosta³y przyznane. (0xc0000022)
+[0211/044627.954:ERROR:exception_snapshot_win.cc(98)] thread ID 5392 not found in process
+[0211/053115.118:ERROR:file_io_win.cc(161)] CreateFile C:\Users\Marcin\AppData\Local\Temp\karma-90577272\Crashpad\settings.dat: System nie mo¿e odnaleŸæ okreœlonej œcie¿ki. (0x3)
+[0211/053115.118:ERROR:file_io_win.cc(170)] CreateFile C:\Users\Marcin\AppData\Local\Temp\karma-90577272\Crashpad\reports\a72f538a-402b-488d-b7c2-d06a45e9703a.dmp: System nie mo¿e odnaleŸæ okreœlonej œcie¿ki. (0x3)
+[0211/053115.119:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed

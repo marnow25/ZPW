@@ -1,23 +1,44 @@
 import { AppPage } from './app.po';
 import { browser, logging } from 'protractor';
 
-describe('workspace-project App', () => {
+describe('App', () => {
   let page: AppPage;
 
   beforeEach(() => {
     page = new AppPage();
+    browser.ignoreSynchronization = true;
   });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('ZPW app is running!');
-  });
+  // it('should load main page', () => {
+  //   page.navigateTo();
+  //   expect(page.getTitle()).toEqual('Travel Agent');
+  // });
 
-  afterEach(async () => {
-    // Assert that there are no errors emitted from the browser
+  // it('should load login page', () => {
+  //   page.navigateTo('/log-in');
+  //   expect(page.getButtonText()).toEqual('Log in');
+  // });
+
+  // it('should not load /orders subpage unauthorized', () => {
+  //   page.navigateTo('/orders');
+  //   expect(browser.getCurrentUrl()).toEqual(browser.baseUrl + 'log-in');
+  // });
+
+
+  // it('should be able to login with right password and navigate to /orders subpage', () => {
+  //   page.navigateTo('/log-in');
+  //   page.login("protractor");
+  //   expect(page.isLoggedIn()).toBe(true);
+  // });
+
+  it('should not be able to login with not valid password', () => {
+    page.navigateTo('/log-in');
+    page.login("not_this_password");
+    expect(browser.getCurrentUrl()).not.toEqual(browser.baseUrl);
+   });
+
+   afterEach(async () => {
     const logs = await browser.manage().logs().get(logging.Type.BROWSER);
-    expect(logs).not.toContain(jasmine.objectContaining({
-      level: logging.Level.SEVERE,
-    } as logging.Entry));
   });
+
 });
