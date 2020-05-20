@@ -15,7 +15,7 @@ exports.config = {
   capabilities: {
     browserName: 'chrome',
     unexpectedAlertBehaviour: 'accept',
-    chromeOptions: { args: ["--no-sandbox", "--disable-gpu", "--window-size=1920,1680"] }
+    chromeOptions: { args: ["--window-size=1920,1680"] }
   },
   directConnect: true,
   baseUrl: 'http://localhost:4200/',

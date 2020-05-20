@@ -1,5 +1,5 @@
 <div class="alert alert-info" role="alert">
-    <h4 class="alert-heading">Opinions about tour</h4>
+    <h4 class="alert-heading">Opinions about apartment</h4>
     <div *ngFor="let comment of comments">
         <hr>
         - {{comment.text}}
@@ -8,7 +8,7 @@
 
 
 <div *ngIf="canComment">
- <textarea class="col-12" [(ngModel)]="comment" placeholder="Will you book this tour?" ></textarea><br>
+ <textarea class="col-12" [(ngModel)]="comment" placeholder="Will you reserve this apartment once again?" ></textarea><br>
  <button (click)="addComment()" class="col-12 btn btn-info text-align-center"> Comment</button>
 </div>
 

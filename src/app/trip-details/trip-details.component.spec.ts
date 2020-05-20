@@ -15,7 +15,6 @@ import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@ang
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 
-
 describe('TripDetailsComponent', () => {
   let component: TripDetailsComponent;
   let fixture: ComponentFixture<TripDetailsComponent>;

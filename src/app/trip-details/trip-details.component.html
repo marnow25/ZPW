@@ -4,8 +4,8 @@
       <h4 class="text-uppercase m-0">{{trip.name}}</h4>
       <div class="text-primary">Price: {{trip.price}}zł</div>
       <div class="text-black">Description: {{trip.description}}</div>
-      <div class="text-black">Trip starts: {{trip.startDate  | date: 'yyyy-MM-dd'}}</div>
-      <div class="text-black">Trip ends: {{trip.endDate  | date: 'yyyy-MM-dd'}}</div>
+      <div class="text-black">Free from: {{trip.startDate  | date: 'yyyy-MM-dd'}}</div>
+      <div class="text-black">Free until: {{trip.endDate  | date: 'yyyy-MM-dd'}}</div>
       <div class="text-black">Places left: {{trip.limit}}</div>
         <div><img class="img-thumbnail" src="../../assets{{trip.imageSrc}}"/></div>     
     </div>

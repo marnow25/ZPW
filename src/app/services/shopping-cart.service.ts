@@ -22,7 +22,6 @@ export class ShoppingCartService {
       const uniqueIds = [...new Set(shoppingCart.map((trip: Trip) => trip.id))];
       uniqueIds.forEach(id => {
           const count = shoppingCart.filter((trip: Trip) => trip.id === id).length;
-          console.log(count);
           this.tripService.getTrip(id).subscribe(trip => this.shoppingCart.push(...Array(count).fill(trip)));
       });
     }

@@ -61,7 +61,7 @@ describe('ShoppingCartService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should get all trips from shopping cart', (done) => {
+  it('should get all apartments from shopping cart', (done) => {
     const service: ShoppingCartService = TestBed.get(ShoppingCartService);
     const result = service.getTripsFromShoppingCart();
     let count = result.length;
@@ -69,7 +69,7 @@ describe('ShoppingCartService', () => {
     done();
   });
 
-  it('should get unique trips from shopping cart ', (done) => {
+  it('should get unique apartments from shopping cart ', (done) => {
     let trip1 = { id: '1', rating: 2, name: 'Poland Trip', destination: 'Poland', startDate: new Date('11/30/2019'), endDate: new Date('12/12/2019'), limit: 24, price: 2500, description: 'Poland Trip', imageSrc: '/img/poland.jpg' };
     //let trip2 = { id: '2', rating: 2, name: 'Poland Trip', destination: 'Poland', startDate: new Date('11/30/2019'), endDate: new Date('12/12/2019'), limit: 24, price: 2500, description: 'Poland Trip', imageSrc: '/img/poland.jpg' };
     const service: ShoppingCartService = TestBed.get(ShoppingCartService);
@@ -81,8 +81,8 @@ describe('ShoppingCartService', () => {
     done();
   });
 
-  it('should delete particular trip from shopping cart ', (done) => {
-    let trip = { id: '1', rating: 2, name: 'Poland Trip', destination: 'Poland', startDate: new Date('11/30/2019'), endDate: new Date('12/12/2019'), limit: 24, price: 2500, description: 'Poland Trip', imageSrc: '/img/poland.jpg' };
+  it('should delete particular apartment from shopping cart ', (done) => {
+    let trip = { id: '1', rating: 2, name: 'Kraków Apartment', destination: 'Kraków', startDate: new Date('11/30/2019'), endDate: new Date('12/12/2019'), limit: 24, price: 2500, description: 'Kraków Apartment', imageSrc: '/img/poland.jpg' };
     const service: ShoppingCartService = TestBed.get(ShoppingCartService);
     service.addTripToShoppingCart(trip);
     service.deleteTripFromShoppingCart(trip);
@@ -91,8 +91,8 @@ describe('ShoppingCartService', () => {
     done();
   });
 
-  it('should check if particular trip exists in shopping cart', (done) => {
-    let trip = { id: '1', rating: 2, name: 'Poland Trip', destination: 'Poland', startDate: new Date('11/30/2019'), endDate: new Date('12/12/2019'), limit: 24, price: 2500, description: 'Poland Trip', imageSrc: '/img/poland.jpg' };
+  it('should check if particular apartment exists in shopping cart', (done) => {
+    let trip = { id: '1', rating: 2, name: 'Kraków Apartment', destination: 'Kraków', startDate: new Date('11/30/2019'), endDate: new Date('12/12/2019'), limit: 24, price: 2500, description: 'Kraków Apartment', imageSrc: '/img/poland.jpg' };
     const service: ShoppingCartService = TestBed.get(ShoppingCartService);
     service.addTripToShoppingCart(trip);
     const result = service.existsInShoppingCart(trip);
@@ -100,9 +100,9 @@ describe('ShoppingCartService', () => {
     done();
   });
 
-  it('should count trips from shopping cart', (done) => {
-    let trip1 = { id: '1', rating: 2, name: 'Poland Trip', destination: 'Poland', startDate: new Date('11/30/2019'), endDate: new Date('12/12/2019'), limit: 24, price: 2500, description: 'Poland Trip', imageSrc: '/img/poland.jpg' };
-    let trip2 = { id: '2', rating: 2, name: 'Poland Trip', destination: 'Poland', startDate: new Date('11/30/2019'), endDate: new Date('12/12/2019'), limit: 24, price: 2500, description: 'Poland Trip', imageSrc: '/img/poland.jpg' };
+  it('should count apartments from shopping cart', (done) => {
+    let trip1 = { id: '1', rating: 2, name: 'Kraków Apartment', destination: 'Kraków', startDate: new Date('11/30/2019'), endDate: new Date('12/12/2019'), limit: 24, price: 2500, description: 'Kraków Apartment', imageSrc: '/img/poland.jpg' };
+    let trip2 = { id: '2', rating: 2, name: 'Kraków Apartment', destination: 'Kraków', startDate: new Date('11/30/2019'), endDate: new Date('12/12/2019'), limit: 24, price: 2500, description: 'Kraków Apartment', imageSrc: '/img/poland.jpg' };
     const service: ShoppingCartService = TestBed.get(ShoppingCartService);
     service.addTripToShoppingCart(trip1);
     service.addTripToShoppingCart(trip2);

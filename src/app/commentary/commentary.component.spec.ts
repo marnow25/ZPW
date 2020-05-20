@@ -14,7 +14,7 @@ import { Observable, of } from 'rxjs';
 import 'zone.js/dist/zone-testing'
 import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 
-
+//TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
 
 class MockItemService {
   comments = [];

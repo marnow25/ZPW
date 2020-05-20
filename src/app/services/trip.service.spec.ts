@@ -62,7 +62,7 @@ describe('TripService', () => {
     expect(tripService).toBeTruthy();
   });
 
-  it('should get all trips', (done) => {
+  it('should get all apartments', (done) => {
     const tripService: TripService = TestBed.get(TripService);
     tripService.getTrips().subscribe((result) => {
       let count = result.length;
@@ -71,17 +71,17 @@ describe('TripService', () => {
     })
   });
 
-  it('should get particular trip ', (done) => {
-    let trip = { id: '1', rating: 2, name: 'Poland Trip', destination: 'Poland', startDate: new Date('11/30/2019'), endDate: new Date('12/12/2019'), limit: 24, price: 2500, description: 'Poland Trip', imageSrc: '/img/poland.jpg' };
+  it('should get particular apartment ', (done) => {
+    let trip = { id: '1', rating: 2, name: 'Kraków Apartment', destination: 'Kraków', startDate: new Date('11/30/2019'), endDate: new Date('12/12/2019'), limit: 24, price: 2500, description: 'Kraków Apartment', imageSrc: '/img/poland.jpg' };
     const tripService: TripService = TestBed.get(TripService);
     tripService.addTrip(trip);
-    const result = tripService.getTrip('Poland Trip');
-    expect(result.toString()).toEqual('Poland Trip');
+    const result = tripService.getTrip('Kraków Apartment');
+    expect(result.toString()).toEqual('Kraków Apartment');
     done();
   });
 
-  it('should remove particular trip ', (done) => {
-    let trip = { id: '1', rating: 2, name: 'Poland Trip', destination: 'Poland', startDate: new Date('11/30/2019'), endDate: new Date('12/12/2019'), limit: 24, price: 2500, description: 'Poland Trip', imageSrc: '/img/poland.jpg' };
+  it('should remove particular apartment ', (done) => {
+    let trip = { id: '1', rating: 2, name: 'Kraków Apartment', destination: 'Kraków', startDate: new Date('11/30/2019'), endDate: new Date('12/12/2019'), limit: 24, price: 2500, description: 'Kraków Apartment', imageSrc: '/img/poland.jpg' };
     const tripService: TripService = TestBed.get(TripService);
     tripService.addTrip(trip);
     const result = tripService.removeTrip(trip);
@@ -89,9 +89,9 @@ describe('TripService', () => {
     done();
   });
 
-  it('should update particular trip ', (done) => {
-    let trip1 = { id: '1', rating: 2, name: 'Poland Trip', destination: 'Poland', startDate: new Date('11/30/2019'), endDate: new Date('12/12/2019'), limit: 24, price: 2500, description: 'Poland Trip', imageSrc: '/img/poland.jpg' };
-    let trip2 = { id: '1', rating: 4, name: 'Poland Trip', destination: 'Poland', startDate: new Date('11/30/2019'), endDate: new Date('12/12/2019'), limit: 24, price: 2500, description: 'Poland Trip', imageSrc: '/img/poland.jpg' };
+  it('should update particular apartment ', (done) => {
+    let trip1 = { id: '1', rating: 2, name: 'Kraków Apartment', destination: 'Kraków', startDate: new Date('11/30/2019'), endDate: new Date('12/12/2019'), limit: 24, price: 2500, description: 'Kraków Apartment', imageSrc: '/img/poland.jpg' };
+    let trip2 = { id: '1', rating: 4, name: 'Kraków Apartment', destination: 'Kraków', startDate: new Date('11/30/2019'), endDate: new Date('12/12/2019'), limit: 24, price: 2500, description: 'Kraków Apartment', imageSrc: '/img/poland.jpg' };
     let testTable = [];
     testTable.push(trip2);
     const tripService: TripService = TestBed.get(TripService);
